@@ -1,6 +1,7 @@
 #include "Plan.hpp"
 #include <limits>
 #include <algorithm>
+#include <fstream>
 
 namespace
 {
@@ -126,6 +127,60 @@ lionheart::Paths::Paths(std::shared_ptr<const Map> const& map, int maxSpeed) : v
         }
       }
   }
+}
+
+lionheart::Paths::Paths(std::string filename)
+    : vertex()
+    , nextAction()
+    , pathLength()
+{
+  std::ifstream fin(filename,std::ios::binary);
+  size_t size;
+  fin >> size;
+  for(size_t i=0;i<size;++i)
+  {
+    int label;
+    fin>>label;
+    int row,col;
+    fin>>row>>col;
+    char facing;
+    fin>>facing;
+    PathVertex v({row,col},static_cast<Direction>(facing));
+    vertex[v] = label;
+  }
+  pathLength.resize(size);
+  nextAction.resize(size);
+  for(size_t i =0;i<size;++i)
+   {
+     pathLength[i].resize(size);
+     nextAction[i].resize(size);
+     for(size_t j=0;j<size;++j)
+     {
+       fin >> pathLength[i][j];
+       fin >> nextAction[i][j];
+     }
+   }
+
+}
+
+void lionheart::Paths::store(std::string filename)
+{
+  std::ofstream fout(filename,std::ios::binary);
+  auto size = vertex.size();
+  for (auto &&v : vertex)
+  {
+    fout << v.second << v.first.location.row << v.first.location.col
+         << static_cast<char>(v.first.facing);
+  }
+  for(size_t i =0;i<size;++i)
+   {
+     for(size_t j=0;j<size;++j)
+     {
+       fout << pathLength[i][j];
+       fout << nextAction[i][j];
+     }
+   }
+  fout.close();
 }
 
 lionheart::Plan::Plan(Unit const& s,

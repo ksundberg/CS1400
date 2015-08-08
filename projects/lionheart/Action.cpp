@@ -1,6 +1,13 @@
 #include "Action.hpp"
 #include <algorithm>
 
+namespace
+{
+  auto const MOVE_ID = 'm';
+  auto const TURN_ID = 't';
+  auto const ATTACK_ID = 'a';
+  auto const WAIT_ID = 'w';
+}
 namespace lionheart
 {
 
@@ -11,6 +18,10 @@ namespace lionheart
       std::unique_ptr<ActionImpl> clone() const
       {
         return std::unique_ptr<ActionImpl>(new MoveImpl(dist));
+      }
+      void output(std::ostream& out) const
+      {
+        out << MOVE_ID << dist;
       }
       bool apply(std::shared_ptr<const Map> const& map,
                  Unit& actor,
@@ -73,6 +84,10 @@ namespace lionheart
       {
         return std::unique_ptr<ActionImpl>(new TurnImpl(dir));
       }
+      void output(std::ostream& out) const
+      {
+        out << TURN_ID << static_cast<char>(dir);
+      }
       bool apply(std::shared_ptr<const Map> const&,
                  Unit& actor,
                  std::vector<std::shared_ptr<Unit>>&,
@@ -92,6 +107,10 @@ namespace lionheart
       std::unique_ptr<ActionImpl> clone() const
       {
         return std::unique_ptr<ActionImpl>(new AttackImpl(target));
+      }
+      void output(std::ostream &out) const
+      {
+        out << ATTACK_ID << target.row << target.col;
       }
       bool apply(std::shared_ptr<const Map> const&,
                  Unit& actor,
@@ -144,5 +163,54 @@ lionheart::Action lionheart::wait()
 lionheart::Action lionheart::attack(Placement p)
 {
   return Action(std::unique_ptr<AttackImpl>(new AttackImpl(p)));
+}
+
+void lionheart::Action::output(std::ostream & out) const
+{
+  if(pImpl)
+  {
+    pImpl->output(out);
+  }
+  else
+  {
+    out << WAIT_ID;
+  }
+}
+
+void lionheart::Action::input(std::istream & in)
+{
+  char code;
+  in >> code;
+  switch(code)
+  {
+  case MOVE_ID:
+    int dist;
+    in >> dist;
+    pImpl.reset(new MoveImpl(dist));
+    break;
+  case TURN_ID:
+    char facing;
+    in >> facing;
+    pImpl.reset(new TurnImpl(static_cast<Direction>(facing)));
+    break;
+  case ATTACK_ID:
+    Placement p;
+    in >> p.row >> p.col;
+    pImpl.reset(new AttackImpl(p));
+    break;
+  case WAIT_ID:
+  default:
+    pImpl = nullptr;
+  }
+}
+std::ostream &operator<<(std::ostream &out, lionheart::Action const &a)
+{
+  a.output(out);
+  return out;
+}
+std::istream &operator>>(std::istream &in, lionheart::Action & a)
+{
+  a.input(in);
+  return in;
 }
 

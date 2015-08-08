@@ -4,8 +4,10 @@ std::vector<std::shared_ptr<lionheart::Player>> lionheart::SingleElimination::ru
 {
   std::vector<std::shared_ptr<Player>> winners;
   auto fortMap = lionheart::makeMap("forts.in");
-  auto infantryPaths = std::make_shared<lionheart::Paths>(fortMap, 1);
-  auto mountedPaths = std::make_shared<lionheart::Paths>(fortMap, 5);
+  auto infantryPaths = std::make_shared<lionheart::Paths>("forts.inf.paths");
+  //auto infantryPaths = std::make_shared<lionheart::Paths>(fortMap, 1);
+  //auto mountedPaths = std::make_shared<lionheart::Paths>(fortMap, 5);
+  auto mountedPaths = std::make_shared<lionheart::Paths>("forts.mounted.paths");
   while (players.size() > 1)
   {
     winners.clear();

@@ -20,6 +20,7 @@ public:
                   std::vector<std::shared_ptr<Unit>> & allies,
                   std::vector<std::shared_ptr<Unit>> & enemies)=0;
   virtual std::unique_ptr<ActionImpl> clone() const =0;
+  virtual void output(std::ostream&) const=0;
 };
 
 
@@ -47,11 +48,17 @@ public:
     }
     return false;
   }
+  void output(std::ostream&) const;
+  void input(std::istream&);
 };
+
 
 Action turn(Direction d);
 Action move(int distance);
 Action wait();
 Action attack(Placement p);
 }
+
+std::ostream& operator<<(std::ostream&,lionheart::Action const &);
+std::istream& operator>>(std::istream&,lionheart::Action &);
 #endif

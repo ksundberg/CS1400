@@ -35,6 +35,8 @@ namespace lionheart
   {
     public:
       Paths(std::shared_ptr<const Map> const& map,int maxSpeed);
+      Paths(std::string filename);
+      void store(std::string filename);
       Action next(PathVertex start, PathVertex stop) const { return access(nextAction, start, stop, Action()); }
       int distance(PathVertex start, PathVertex stop) const { return access(pathLength, start, stop, static_cast<int>(vertex.size())); }
 
