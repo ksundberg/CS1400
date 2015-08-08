@@ -45,8 +45,8 @@ set(Player_srcs
   Player/CirclingShark.hpp
   Player/CrouchingTiger.hpp
   Player/HiddenDragon.hpp
-  Player/ExamplePlayer.hpp
-  Player/ExamplePlayer.cpp
+  Player/RyanDockstader.hpp
+  Player/RyanDockstader.cpp
   )
 
 set(PlayerIncludes)
