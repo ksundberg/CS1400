@@ -82,6 +82,30 @@ set(Player_srcs
   Player/TylerClark.cpp
   Player/ChrisBarbot.cpp
   Player/ChrisBarbot.hpp
+  Player/Jarom_Wilcox.hpp
+  Player/Jarom_Wilcox.cpp
+  Player/ColtonBabcock.cpp
+  Player/ColtonBabcock.hpp
+  Player/ShaneBullock.hpp
+  Player/ShaneBullock.cpp
+  Player/BrianCox.cpp
+  Player/BrianCox.hpp
+  Player/Zen.hpp
+  Player/Zen.cpp
+  Player/BlakeHicken.cpp
+  Player/BlakeHicken.hpp
+  Player/Alexa.hpp
+  Player/Alexa.cpp
+  Player/JoshuaOstberg.cpp
+  Player/JoshuaOstberg.hpp
+  Player/BrandonSmith.hpp
+  Player/BrandonSmith.cpp
+  Player/JonathanSpencer.cpp
+  Player/JonathanSpencer.hpp
+  Player/Clayton_Swenson.hpp
+  Player/Clayton_Swenson.cpp
+  Player/AsgardianSaphire.cpp
+  Player/AsgardianSaphire.hpp
   )
 
 set(PlayerIncludes)
