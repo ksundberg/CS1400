@@ -4,16 +4,17 @@
 lionheart::Placement lionheart::PeacefulWarrior::placeUnit(UnitType type, StartBox const& box, SituationReport report)
 {
   lionheart::Placement crown;
-	auto useMin = (box.minCol < static_cast<int>((report.things[0].size() / 2)));
-	if (type == CROWN)
-	{
-		if (useMin)
-			crown = { (box.minRow + box.maxRow) / 2, box.minCol };
-		else
-			crown = { (box.minRow + box.maxRow) / 2, box.maxCol };
-		return crown;
-	}
-	auto minR = box.minRow;
+  auto useMin = (box.minCol < static_cast<int>((report.things[0].size() / 2)));
+  if (useMin)
+    crown = {(box.minRow + box.maxRow) / 2, box.minCol };
+  else
+    crown = {(box.minRow + box.maxRow) / 2, box.maxCol };
+
+  if (type == CROWN)
+  {
+    return crown;
+  }
+        auto minR = box.minRow;
 	auto maxR = box.maxRow;
 	auto minC = box.minCol;
 	auto maxC = box.maxCol;
