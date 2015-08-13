@@ -7,12 +7,10 @@ lionheart::Action lionheart::RyanDockstader::goodEyeSniper(lionheart::Unit const
 {
 	if (plan.hasAttack())
 	{
-		std::cout << "checkForCrown is returning an attack." << std::endl;
 		return plan.attackEnemy();
 	}
 	else if (report.turns < 62)
 	{
-		std::cout << "Turns is less then 62" << std::endl;
 
 		if (westSide)
 		{
@@ -32,7 +30,6 @@ lionheart::Action lionheart::RyanDockstader::goodEyeSniper(lionheart::Unit const
 	}
 	else if (report.turns < 80)
 	{
-		std::cout << "turns is less then 80" << std::endl;
 
 		if (westSide)
 			return plan.moveToLocation(enemyCrown.row, 29);
@@ -42,12 +39,10 @@ lionheart::Action lionheart::RyanDockstader::goodEyeSniper(lionheart::Unit const
 
 	else if (report.turns > 100)
 	{
-		std::cout << "Moving to enemy crown" << std::endl;
 		return plan.moveToEnemyCrown();
 	}
 	else if (checkForCrown(unit, report))
 	{
-		std::cout << "checkForCrown Returned a True Value" << std::endl;
 
 		if (westSide)
 		{
@@ -71,7 +66,6 @@ lionheart::Action lionheart::RyanDockstader::goodEyeSniper(lionheart::Unit const
 	}
 	else
 	{
-		std::cout << "made it to the else statement" << std::endl;
 		return plan.attackEnemy();
 	}
 
