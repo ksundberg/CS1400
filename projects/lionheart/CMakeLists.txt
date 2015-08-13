@@ -53,6 +53,35 @@ set(Player_srcs
   Player/TannerYorgason.cpp
   Player/FritzWaechtler.hpp
   Player/FritzWaechtler.cpp
+  Player/PeacefulWarrior.hpp
+  Player/PeacefulWarrior.cpp
+  Player/CameronSwain.hpp
+  Player/CameronSwain.cpp
+  Player/AdamSorensen.hpp
+  Player/AdamSorensen.cpp
+  Player/BradleyRobinson.hpp
+  Player/DevinParsons.hpp
+  Player/DevinParsons.cpp
+  Player/DukePapworth.hpp
+  Player/DukePapworth.cpp
+  Player/ChrisMurdock.hpp
+  Player/ChrisMurdock.cpp
+  Player/Calvin_Makelky.hpp
+  Player/Calvin_Makelky.cpp
+  Player/EricLindholm.hpp
+  Player/EricLindholm.cpp
+  Player/VictoriousSecret.hpp
+  Player/VictoriousSecret.cpp
+  Player/BradJorgensen.cpp
+  Player/BradJorgensen.hpp
+  Player/ChrisIrvine.cpp
+  Player/ChrisIrvine.hpp
+  Player/Fernandes.cpp
+  Player/Fernandes.hpp
+  Player/TylerClark.hpp
+  Player/TylerClark.cpp
+  Player/ChrisBarbot.cpp
+  Player/ChrisBarbot.hpp
   )
 
 set(PlayerIncludes)
