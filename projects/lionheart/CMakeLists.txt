@@ -106,6 +106,8 @@ set(Player_srcs
   Player/Clayton_Swenson.cpp
   Player/AsgardianSaphire.cpp
   Player/AsgardianSaphire.hpp
+  Player/BrendanWinter.hpp
+  Player/BrendanWinter.cpp
   )
 
 set(PlayerIncludes)
