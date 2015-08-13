@@ -47,6 +47,8 @@ set(Player_srcs
   Player/HiddenDragon.hpp
   Player/RyanDockstader.hpp
   Player/RyanDockstader.cpp
+  Player/PlayerPaulFairbanks.hpp
+  Player/PlayerPaulFairbanks.cpp
   )
 
 set(PlayerIncludes)
