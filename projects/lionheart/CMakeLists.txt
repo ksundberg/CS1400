@@ -37,7 +37,7 @@ endforeach()
 ###############################
 # Player files
 set(Player_srcs
-  Player/SittingDuck.hpp
+  # Player/SittingDuck.hpp
   Player/Goldfish.hpp
   Player/ChargingBadger.hpp
   Player/WildBoar.hpp
@@ -108,6 +108,8 @@ set(Player_srcs
   Player/AsgardianSaphire.hpp
   Player/BrendanWinter.hpp
   Player/BrendanWinter.cpp
+  Player/MattOlsen.cpp
+  Player/MattOlsen.hpp
   )
 
 set(PlayerIncludes)
