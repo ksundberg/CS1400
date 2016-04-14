@@ -11,6 +11,10 @@ struct Placement
   int col;
 };
 
+  std::ostream & serialize(std::ostream& os, const Placement& placement);
+
+  std::istream & deserialize(std::istream& is, Placement& placement);
+
 class ActionImpl
 {
 public:
@@ -20,6 +24,7 @@ public:
                   std::vector<std::shared_ptr<Unit>> & allies,
                   std::vector<std::shared_ptr<Unit>> & enemies)=0;
   virtual std::unique_ptr<ActionImpl> clone() const =0;
+  virtual std::string getName() const = 0;
 };
 
 
@@ -48,6 +53,8 @@ public:
     return false;
   }
 };
+std::ostream& serialize(std::ostream& os, const Action& action);
+std::istream& deserialize(std::istream& is, Action& placement);
 
 Action turn(Direction d);
 Action move(int distance);

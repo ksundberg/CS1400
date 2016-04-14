@@ -5,6 +5,7 @@
 #include "Archer.hpp"
 #include "Infantry.hpp"
 #include "SituationReport.hpp"
+#include "Paths.hpp"
 #include <numeric>
 #include <random>
 
