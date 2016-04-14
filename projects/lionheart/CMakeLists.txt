@@ -116,6 +116,8 @@ set(Aux_srcs
   Map.hpp
   Plan.cpp
   Plan.hpp
+  Paths.cpp
+  Paths.hpp
   Player.hpp
   SituationReport.hpp
   Tournament.hpp

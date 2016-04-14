@@ -6,6 +6,7 @@
 #include "Player.hpp"
 #include "Unit.hpp"
 #include "Display.hpp"
+#include "Paths.hpp"
 #include <memory>
 #include <vector>
 #include <array>

@@ -1,5 +1,6 @@
 #include "catch.hpp"
 #include "Plan.hpp"
+#include "Paths.hpp"
 
 SCENARIO("Path Vertex Objects behave in a sane way")
 {

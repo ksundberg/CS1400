@@ -1,4 +1,5 @@
 #include "Gauntlet.hpp"
+#include "Paths.hpp"
 
 std::vector<std::shared_ptr<lionheart::Player>> lionheart::Gauntlet::run()
 {
