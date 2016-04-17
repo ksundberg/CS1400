@@ -69,10 +69,16 @@ std::vector<std::shared_ptr<lionheart::Player>> lionheart::Swiss::run()
 {
   std::map<Record,std::vector<std::shared_ptr<Player>>> oldBrackets;
   auto fortMap = lionheart::makeMap("forts.in");
+
+  std::cout << "\nTo minimize loading time, put the project in \"Release\" mode:" << std::endl;
+  std::cout << "\tInstall: sudo apt-get install cmake-curses-gui" << std::endl;
+  std::cout << "\tType: \"ccmake .\"" << std::endl;
+  std::cout << "\tHit: [enter], type: \"Release\", hit: [enter] -> [c] -> [g]" << std::endl << std::endl;
   std::cout << "[1 of 2] Infantry:" << std::endl << std::endl;
   auto infantryPaths = std::make_shared<lionheart::Paths>(fortMap, 1);
   std::cout << "[2 of 2] Mounted:" << std::endl << std::endl;
   auto mountedPaths = std::make_shared<lionheart::Paths>(fortMap, 5);
+
   oldBrackets[Record()] = players;
   auto rounds = static_cast<int>(std::log2(players.size()) + 1);
   for(auto round=0;round<rounds;++round)
