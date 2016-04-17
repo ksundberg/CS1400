@@ -152,7 +152,7 @@ lionheart::Paths::Paths(std::shared_ptr<const Map> const& map, int maxSpeed) : v
   printf("\033[1A"); //steps up on line (unique to linux but there are windows solutions)
   printf("\033[K"); //steps back the the beginning of the line (unique to linux but there are windows solutions)
   printf("Processing: %3d%%", 100);
-  std::cout << std::endl;
+  std::cout << std::endl << std::endl;
 
 }
 
