@@ -41,6 +41,13 @@ lionheart::Paths::Paths(std::shared_ptr<const Map> const& map, int maxSpeed) : v
 {
   std::vector<lionheart::Direction> const dirs{
     lionheart::Direction::NORTH, lionheart::Direction::EAST, lionheart::Direction::SOUTH, lionheart::Direction::WEST};
+  
+  //loading bar part 1
+  printf("\033[1A"); //steps up on line (unique to linux but there are windows solutions)
+  printf("\033[K"); //steps back the the beginning of the line (unique to linux but there are windows solutions)
+  printf("Processing: %3d%%", 0);
+  std::cout << std::endl;
+  
   //Create all vertexes
   auto vNum = 0;
   for (int r = 0; r < static_cast<int>(map->rows()); ++r)
@@ -114,6 +121,20 @@ lionheart::Paths::Paths(std::shared_ptr<const Map> const& map, int maxSpeed) : v
   //Apply Floyd-Warshall algorithm with paths
   for (int mid = 0; mid < vNum; ++mid)
   {
+
+	//loading bar part 2
+	if (mid % 50 == 0) {
+	  printf("\033[1A"); //steps up on line (unique to linux but there are windows solutions)
+	  printf("\033[K"); //steps back the the beginning of the line (unique to linux but there are windows solutions)
+	  printf("Processing: %3d%%", (int) (((float) mid / (float) vNum) * 100));
+	  std::cout << "[";
+	  for (int i = 0; i < mid / 50; i++)
+		  std::cout << "X";
+	  for (int i = mid / 50; i < vNum / 50; i++)
+		  std::cout << " ";
+	  std::cout << "]" << std::endl;
+	}
+
     for (int start = 0; start < vNum; ++start)
       for (int stop = 0; stop < vNum; ++stop)
       {
@@ -126,6 +147,13 @@ lionheart::Paths::Paths(std::shared_ptr<const Map> const& map, int maxSpeed) : v
         }
       }
   }
+
+  //loading bar part 3
+  printf("\033[1A"); //steps up on line (unique to linux but there are windows solutions)
+  printf("\033[K"); //steps back the the beginning of the line (unique to linux but there are windows solutions)
+  printf("Processing: %3d%%", 100);
+  std::cout << std::endl;
+
 }
 
 lionheart::Plan::Plan(Unit const& s,

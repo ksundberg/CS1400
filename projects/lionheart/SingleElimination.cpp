@@ -4,7 +4,9 @@ std::vector<std::shared_ptr<lionheart::Player>> lionheart::SingleElimination::ru
 {
   std::vector<std::shared_ptr<Player>> winners;
   auto fortMap = lionheart::makeMap("forts.in");
+  std::cout << "[1 of 2] Infantry:" << std::endl << std::endl;
   auto infantryPaths = std::make_shared<lionheart::Paths>(fortMap, 1);
+  std::cout << "[2 of 2] Mounted:" << std::endl << std::endl;
   auto mountedPaths = std::make_shared<lionheart::Paths>(fortMap, 5);
   auto round = 0;
   while (players.size() > 1)
@@ -45,7 +47,7 @@ std::vector<std::shared_ptr<lionheart::Player>> lionheart::SingleElimination::ru
       {
         auto tie = game.tiebreaker();
         if (tie) {
-        std::cout << winner->getBlazon().name << " wins by tie break!" << std::endl;
+		  std::cout << tie->getBlazon().name << " wins by tie break!" << std::endl;
           winners.push_back(tie);
         }
         else

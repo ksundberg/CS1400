@@ -4,7 +4,9 @@ std::vector<std::shared_ptr<lionheart::Player>> lionheart::Gauntlet::run()
 {
   if(!keyPlayer) return {};
   auto fortMap = lionheart::makeMap("forts.in");
+  std::cout << "[1 of 2] Infantry:" << std::endl << std::endl;
   auto infantryPaths = std::make_shared<lionheart::Paths>(fortMap, 1);
+  std::cout << "[2 of 2] Mounted:" << std::endl << std::endl;
   auto mountedPaths = std::make_shared<lionheart::Paths>(fortMap, 5);
   for(auto&& p:players)
   {
