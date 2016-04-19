@@ -73,6 +73,17 @@ set(Player_srcs
   Player/ShemHale.hpp
   Player/ShemHale.cpp
   Player/Evee.hpp
+  Player/JeffreyHeilbut.hpp
+  Player/JeffreyHeilbut.cpp
+  Player/DustinHoman.hpp
+  Player/JamesHumble.hpp
+  Player/JamesHumble.cpp
+  Player/ChrisJenkins.cpp
+  Player/ChrisJenkins.hpp
+  Player/KylerJensen.hpp
+  Player/KylerJensen.cpp
+  Player/EmilyJowers.cpp
+  Player/EmilyJowers.hpp
 
 )
 
