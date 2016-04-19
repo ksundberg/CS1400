@@ -26,15 +26,15 @@ bool hasAttack() const {return inRange;}
 ********************************************************************/
 
 /******* GLOBALS ***************************************************/
+namespace {
 auto mapWidth = 30;
 auto mapHeight = 30;
 auto id = 0;
 auto west = false;
-auto baitTimer = 0;
 lionheart::Map::Location curLoc;
-lionheart::Direction curDir;
 std::vector<lionheart::Placement> lineOfSight;
 lionheart::Placement enemyKing;
+}
 
 
 /******* FUNCTIONS *************************************************/

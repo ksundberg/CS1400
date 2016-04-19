@@ -92,6 +92,18 @@ set(Player_srcs
   Player/ChrisMoat.cpp
   Player/KyleMyers.cpp
   Player/KyleMyers.hpp
+  Player/GloryObielodan.hpp
+  Player/BryanPorter.hpp
+  Player/BryanPorter.cpp
+  Player/JohnathanPowell.cpp
+  Player/JohnathanPowell.hpp
+  Player/DakotaRaymond.hpp
+  Player/PaulRoylance.hpp
+  Player/PaulRoylance.cpp
+  Player/StevenSimcox.cpp
+  Player/StevenSimcox.hpp
+  Player/DavidSpencer.hpp
+  Player/DavidSpencer.cpp
 
 )
 
