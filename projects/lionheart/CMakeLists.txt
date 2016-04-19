@@ -53,6 +53,13 @@ set(Player_srcs
   Player/BrandonSmith.hpp
   Player/BrandonSmith.cpp
 
+  Player/AntoninoAguilar.hpp
+  Player/MattBaker.hpp
+  Player/MattBaker.cpp
+  Player/MeganHarmon.hpp
+  Player/DanielBertrand.hpp
+  Player/DanielBertrand.cpp
+  Player/LeifChipman.hpp
 
 )
 
