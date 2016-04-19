@@ -65,10 +65,8 @@ lionheart::TimothyFerrell::recommendAction(Unit const & me, SituationReport sit,
     if(sit.turns ==1){
         if(!isBrandon){
             if(detectBrandon(sit)){
-                std::cout<<"We are playing brandon \n";
                 isBrandon = true;
             }else{
-                std::cout<<"No Brandon \n";
             }
         }
         if(index >=0 ){

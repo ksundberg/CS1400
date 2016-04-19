@@ -62,19 +62,15 @@ lionheart::KylerJensen::placeUnit(UnitType type, StartBox const &box, SituationR
     switch (type) {
         case CROWN:
             posts = { crownDefensivePost };
-            std::cerr << "Placing CROWN";
             break;
         case ARCHER:
             posts = archerStartPlacements;
-            std::cerr << "Placing ARCHER";
             break;
         case INFANTRY:
             posts = infantryStartPlacements;
-            std::cerr << "Placing INFANTRY";
             break;
         case KNIGHT:
             posts = knightStartPlacements;
-            std::cerr << "Placing KNIGHT";
             break;
         default:
             throw std::runtime_error("Piece was not placed on the board!");
@@ -82,7 +78,6 @@ lionheart::KylerJensen::placeUnit(UnitType type, StartBox const &box, SituationR
     if(startSide == StartSide::RIGHT_SIDE)
         posts = posts.flippedHorizontally(report);
     auto placement = spacesOrEnemies(posts, report).front();
-    std::cerr << " at {" << placement.r << "," << placement.c << "}" << std::endl;
     return { placement.r, placement.c };
 }
 
@@ -189,14 +184,13 @@ lionheart::KylerJensen::determineStartSide(StartBox box, SituationReport report)
     int midCol = (cMin + cMax) / 2;
     if (midCol < ((int) report.things.size() / 2)) {
         if (startSide != LEFT_SIDE)
-            std::cerr << "Starting from the left side." << std::endl;
         return LEFT_SIDE;
     }
     else {
         if (startSide != RIGHT_SIDE)
-            std::cerr << "Starting from the right side." << std::endl;
         return RIGHT_SIDE;
     }
+    return LEFT_SIDE;
 }
 
 std::vector<lionheart::KylerJensen::Position>
@@ -388,7 +382,6 @@ bool lionheart::KylerJensen::crownIsInDanger(SituationReport report) {
                 distance += crownHP;
                 if (distance < crownDangerThreshold) {
                     if (!crownInDanger) {
-                        std::cerr << "Crown became endangered at turn " << report.turns << std::endl;
                         crownInDanger = true;
                     }
                     return true;
@@ -397,7 +390,6 @@ bool lionheart::KylerJensen::crownIsInDanger(SituationReport report) {
             }
         }
     if (crownInDanger) {
-        std::cerr << "Crown became safe at turn " << report.turns << std::endl;
         crownInDanger = false;
     }
     return false;

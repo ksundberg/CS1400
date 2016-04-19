@@ -402,10 +402,6 @@ lionheart::ChrisJenkins::recommendAction(Unit const & u, SituationReport sitch, 
         //if(sitch.turns == 0) HPz.clear();
         if(sitch.turns == 0 && !westSide) return turn(Direction::WEST);  //turn toward enemy
 
-        //std::cerr << "sizeof(int)" << sizeof(int) * 3 << std::endl;
-        //std::cerr << "(((int *)&u) + 3): " << (((int *)&u) + 3) << std::endl;
-
-        //std::cerr << "unitAddr: " << &u << " unit's hp: " << &(u.hp) << std::endl;
 
         if(p.hasAttack()) return p.attackEnemy();
         if(u.getType() == CROWN) return wait();

@@ -25,15 +25,12 @@ bool lionheart::DavidSpencer::isEnemyInBox(lionheart::SituationReport report) {
     jStart = 22;
     jEnd = 27;
   }
-  // std::cout << "Box: " << std::endl;
   for(auto i = 10; i <= 19; i++) {
     for(auto j = jStart; j <= jEnd; j++) {
-      // std::cout << report.things[i][j].type;
       if(report.things[i][j].type == lionheart::SituationReport::ENEMY) {
         return true;
       }
     }
-    // std::cout << std::endl;
   }
 
   return false;
@@ -84,7 +81,6 @@ auto lionheart::DavidSpencer::getClosestEnemy(Plan p, SituationReport report) {
 }
 
 lionheart::Action lionheart::DavidSpencer::moveToNorthCorner(Plan p) {
-  std::cout << "North" << std::endl;
 
   if(isAllyEast) {
     return p.moveToLocation(0, 29);
@@ -94,7 +90,6 @@ lionheart::Action lionheart::DavidSpencer::moveToNorthCorner(Plan p) {
 }
 
 lionheart::Action lionheart::DavidSpencer::moveToSouthCorner(Plan p) {
-  // std::cout << "South" << std::endl;
 
   if(isAllyEast) {
     return p.moveToLocation(29, 29);
@@ -104,7 +99,6 @@ lionheart::Action lionheart::DavidSpencer::moveToSouthCorner(Plan p) {
 }
 
 lionheart::Action lionheart::DavidSpencer::runAway(Unit const& u, Plan p, SituationReport report) {
-  // std::cout << "Running ";
   auto closestEnemyPos = getClosestEnemy(p, report);
 
   if(closestEnemyPos.first - u.getLocation().row > 0) { //enemy to the south, move north
@@ -141,7 +135,6 @@ lionheart::Action lionheart::DavidSpencer::recommendAction(Unit const& u, Situat
 {
   if (u.getType() == CROWN) {
     crownMoves++;
-    // std::cout << "moves to enemy: " << p.movesToEnemy() << std::endl;
     if(p.movesToEnemy() <= 3) {
       return runAway(u, p, report);
     }
@@ -165,7 +158,6 @@ lionheart::Action lionheart::DavidSpencer::recommendAction(Unit const& u, Situat
     }
 
     if(isEnemyInBox(report)) {
-      // std::cout << "Enemy in box" << std::endl;
       return p.attackEnemy();
     }
     return wait();
@@ -176,7 +168,6 @@ lionheart::Action lionheart::DavidSpencer::recommendAction(Unit const& u, Situat
     return p.attackEnemy();
   }
   if(inEnemyBox(u)) {
-    // std::cout << "In enemy box" << std::endl;
     return p.moveToEnemyCrown();
   }
 
