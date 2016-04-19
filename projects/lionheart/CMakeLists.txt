@@ -115,6 +115,10 @@ set(Player_srcs
   Player/ChrisWagner.hpp
   Player/mathew_warenski.hpp
   Player/mathew_warenski.cpp
+  Player/JustinWood.cpp
+  Player/JustinWood.hpp
+  Player/JustinYoung.hpp
+  Player/JustinYoung.cpp
 
 )
 
