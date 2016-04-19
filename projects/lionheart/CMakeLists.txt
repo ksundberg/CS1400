@@ -65,6 +65,14 @@ set(Player_srcs
   Player/JoshuaCrane.cpp
   Player/CameronCummings.hpp
   Player/CameronCummings.cpp
+  Player/CorbinCutler.hpp
+  Player/MichaelDavenport.hpp
+  Player/TimothyFerrell.hpp
+  Player/TimothyFerrell.cpp
+  Player/AustinGoddard.hpp
+  Player/ShemHale.hpp
+  Player/ShemHale.cpp
+  Player/Evee.hpp
 
 )
 
