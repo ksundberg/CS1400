@@ -104,6 +104,17 @@ set(Player_srcs
   Player/StevenSimcox.hpp
   Player/DavidSpencer.hpp
   Player/DavidSpencer.cpp
+  Player/TaylorSpencer.cpp
+  Player/TaylorSpencer.hpp
+  Player/LaurelStewart.hpp
+  Player/LaurelStewart.cpp
+  Player/Joseph_Sundberg.hpp
+  Player/JackThomas.hpp
+  Player/JackThomas.cpp
+  Player/ChrisWagner.cpp
+  Player/ChrisWagner.hpp
+  Player/mathew_warenski.hpp
+  Player/mathew_warenski.cpp
 
 )
 
