@@ -23,8 +23,8 @@ namespace lionheart
 
 	char meleeAware(SituationReport report, Unit const& u)
 	{
-		int x1 = u.getLocation().row;
-		int y1 = u.getLocation().col;
+		unsigned int x1 = u.getLocation().row;
+		unsigned int y1 = u.getLocation().col;
 		for (unsigned int i = -1; i < 2; i++)
 			for (unsigned int j = -1; i < 2; j++)
 				if (report.things[valid_loc(x1 + i)][valid_loc(y1 + j)].type == lionheart::SituationReport::ENEMY)
@@ -200,8 +200,6 @@ namespace lionheart
 		{
 			turns = report.turns;
 			id = u.getId();
-			int x1 = u.getLocation().col;
-			int y1 = u.getLocation().row;
 
 			if (u.getType() == CROWN && turns < 33)       //// King's Preparation phase, hoping to send backwall archers over to be decimated by knights
 			{
