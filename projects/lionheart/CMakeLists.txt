@@ -84,6 +84,14 @@ set(Player_srcs
   Player/KylerJensen.cpp
   Player/EmilyJowers.cpp
   Player/EmilyJowers.hpp
+  Player/JamesJowers.hpp
+  Player/JamesJowers.cpp
+  Player/JayMattinson.hpp
+  Player/HadenMcAfee.hpp
+  Player/ChrisMoat.hpp
+  Player/ChrisMoat.cpp
+  Player/KyleMyers.cpp
+  Player/KyleMyers.hpp
 
 )
 
