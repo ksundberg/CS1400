@@ -60,6 +60,9 @@ set(Player_srcs
   Player/DanielBertrand.hpp
   Player/DanielBertrand.cpp
   Player/LeifChipman.hpp
+  Player/KristinClark.hpp
+  Player/JoshuaCrane.hpp
+  Player/JoshuaCrane.cpp
 
 )
 
