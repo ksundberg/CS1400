@@ -12,7 +12,7 @@ lionheart::Placement lionheart::JoshuaCrane::placeUnit(UnitType,
 		}
 
 		lionheart::Action
-		lionheart::JoshuaCrane::recommendAction(Unit const &, SituationReport, Plan)
+		lionheart::JoshuaCrane::recommendAction(Unit const & u, SituationReport, Plan p)
 		{
 			if (u.getType() == KNIGHT)
 			{
