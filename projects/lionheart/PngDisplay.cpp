@@ -34,7 +34,9 @@ void lionheart::PngDisplay::show(lionheart::SituationReport const& report, Blazo
   png_structp png_ptr = nullptr;
   png_infop info_ptr = nullptr;
   auto data = drawReport(report,p1,p2);
-  auto filename = output + "turn" + std::to_string(report.turns) + ".png";
+  char turn_number[5]; //= std::to_string(report.turns);
+  sprintf(turn_number,"%03d",report.turns);
+  auto filename = "./png/" + output + "turn" + turn_number + ".png";
   fp = fopen(filename.c_str(),"wb");
   png_ptr = png_create_write_struct(PNG_LIBPNG_VER_STRING,nullptr,nullptr,nullptr);
   info_ptr = png_create_info_struct(png_ptr);
